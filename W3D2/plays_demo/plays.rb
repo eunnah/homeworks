@@ -21,25 +21,31 @@ class Play
 
   def self.find_by_title(title)
     raise "#{title} not in database" unless Play.all.any? { |play| title == play.title }
-    PlayDBConnection.instance.execute(<<-SQL, title)
+    play = PlayDBConnection.instance.execute(<<-SQL, title)
       SELECT *
       FROM
         plays
       WHERE
         title = ?
     SQL
+    return nil unless play.length > 0
+
+#   Play.new(play.first) # play is stored in an array!
+
   end
 
   def self.find_by_playwright(name)
     playwright = Playwright.find_by_name(name)
     raise "#{name} not found in DB" unless playwright
-    PlayDBConnection.instance.execute(<<-SQL, playwright.id)
+    plays = PlayDBConnection.instance.execute(<<-SQL, playwright.id)
       SELECT *
       FROM
         plays
       WHERE
         playwright_id = ?
     SQL
+    plays.map { |play| Play.new(play) }
+
   end
 
   def initialize(options)
@@ -84,13 +90,15 @@ class Playwright
 
   def self.find_by_name(name)
     raise "#{name} not in database" unless Playwright.all.any? { |person| name == person.name }
-    PlayDBConnection.instance.execute(<<-SQL, name)
+    person = PlayDBConnection.instance.execute(<<-SQL, name)
       SELECT *
       FROM
         playwrights
       WHERE
         name = ?
     SQL
+    # return nil unless person.length > 0
+    Playwright.new(person.first)
   end
 
   def initialize(options)
@@ -114,7 +122,7 @@ class Playwright
     raise "#{self} not in database" unless @id
     PlayDBConnection.instance.execute(<<-SQL, @name, @birth_year, @id)
       UPDATE
-        plays
+        playwrights
       SET
         name = ?, birth_year = ?
       WHERE
@@ -123,16 +131,16 @@ class Playwright
   end
 
   def get_plays
-    raise "#{@name} doesn't have any plays" unless Play.find_by_playwright(@name)
-    PlayDBConnection.instance.execute(<<-SQL, @name)
+    raise "#{@name} doesn't have any plays" unless @id
+    PlayDBConnection.instance.execute(<<-SQL, @id)
       SELECT *
       FROM
         plays
-      INNER JOIN playwrights
-      ON id = playwright_id
       WHERE
-        name = ?
+        playwright_id = ?
     SQL
+    # plays.map { |play| Play.new(play) }
+
   end
 
 end
