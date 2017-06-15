@@ -136,5 +136,12 @@ class MetaCorgiSnacks
       result = "#{name.capitalize}: #{info}: #{tastiness} "
       tastiness > 30 ? "* #{result}" : result
     }
+
+    # solution
+    #    info = @snack_box.send("get_#{name}_info", @box_id)
+    # tastiness = @snack_box.send("get_#{name}_tastiness", @box_id)
+    # display_name = "#{name.split('_').map(&:capitalize).join(' ')}"
+    # result = "#{display_name}: #{info}: #{tastiness}"
+    # tastiness > 30 ? "* #{result}" : result
   end
 end
