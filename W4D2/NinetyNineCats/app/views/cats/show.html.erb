@@ -1,0 +1,30 @@
+<h1><%= @cat.name %></h1>
+
+<table>
+  <tr>
+<h3>Birth Date: <%= @cat.birth_date%></h3></tr>
+<tr><h3>Color: <%= @cat.color%></h3></tr>
+<tr><h3>Sex: <%= @cat.sex%></h3></tr>
+<tr>
+<p>
+  <%= @cat.description %>
+</p></tr>
+<tr>
+<p><h3>Rentals: </h3><ol>
+  <% @rentals.each do |rental| %>
+  <li>
+  <%= rental.start_date %> -
+  <%= rental.end_date %>
+  <%= rental.status %>
+  <% if rental.status == "PENDING"%>
+   <%= button_to "approve", approve_cat_rental_request_url(rental), method: :post%>
+   <%= button_to "deny", deny_cat_rental_request_url(rental), method: :post%>
+  <% end %>
+</li>
+<% end %>
+</ol>
+</p></tr>
+</table>
+
+<%= link_to "Modify this cat's records", edit_cat_url(@cat) %><br><br>
+<%= link_to "View all cats", cats_url %>
