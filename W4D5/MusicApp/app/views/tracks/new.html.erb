@@ -1,0 +1,27 @@
+<!--
+You need a drop down to select the Album. Again, default select the appropriate Album in the drop down.
+Use radio buttons to mark a track as a "bonus" or "regular" track. Again, default select the appropriate value.
+Use a textarea to allow the user to enter lyrics.
+-->
+
+<form action="<%= tracks_url %>" method="POST">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <label for="name">Track name</label>
+  <input type="text" name="track[name]" id="name">
+  <label for="album">Select Album</label>
+
+  <!-- Drop down menu syntax -->
+  <select name="track[album_id]" id="album">
+    <% @albums.each do |album| %>
+      <option value="<%= album.id %>" <%= "selected" if @track.album_id == album.id %>>
+        <%= album.name.capitalize %></option>
+    <% end %>
+  </select>
+  <br>
+  <!-- Radio button syntax -->
+    <input id="category_regular" type="radio" name="track[category]" value="regular">
+      <label for "category_regular">Regular track</label>
+    <input id="category_bonus" type="radio" name="track[category]" value="bonus">
+      <label for "category_bonus">Bonus track</label><br><br>
+    <input type="submit" value="Submit" />
+</form>
