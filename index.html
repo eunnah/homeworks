@@ -19,42 +19,44 @@
 </script>
   <head>
   <body>
-      <header><h1><img src="images/Appacademylogo.png"/> Shakshuka</h1>
-
-        <h2>Evelyn's Amazing Shakshuka</h2></header>
-      <section>
-        <figure>
-          <img src="https://static01.nyt.com/images/2014/09/02/dining/shakshuka/shakshuka-superJumbo-v2.jpg" width=30% alt="Picture of shakshuka"/>
-      </figure>
-      </section>
-      <figcaption>A beautiful picture. Learn more about shakshuka at its <a href="https://www.wikiwand.com/en/Shakshouka" target="_blank">Wikipedia page</a></figcaption>
-
-      <nav>
-      <ul>
-        <li><a href="#description">Description</a></li>
-        <li><a href="#ingredients">Ingredients</a></li>
-        <li><a href="#directions">Directions</a></li>
-      </ul>
-    </nav>
-    <section>
-      <p><h2><a name="description">Description of shakshuka</a></h2>
-      Shakshuka is a delicious, red, tomato-based dish. It is hearty and filling, but also very healthy.</p></section>
+      <header><img src="images/Appacademylogo.png"/>
+        <nav>
+        <ul>
+          <li><a href="#description">Description</a></li>
+          <li><a href="#ingredients">Ingredients</a></li>
+          <li><a href="#directions">Directions</a></li>
+        </ul>
+      </nav>
+    </header>
       <aside>
         <h2><a name="ingredients" class="ingredients-list">Ingredients</a></h2>
         <ul><li>3 tablespoons extra-virgin olive oil</li>
-<li>1 large onion, halved and thinly sliced</li>
-<li>1 large red bell pepper, seeded and thinly sliced</li>
-<li>3 garlic cloves, thinly sliced</li>
-<li>1 teaspoon ground cumin</li>
-<li>1 teaspoon sweet paprika</li>
-<li>⅛ teaspoon cayenne, or to taste</li>
-<li>1 (28-ounce) can whole plum tomatoes with juices, coarsely chopped</li>
-<li>¾ teaspoon salt, more as needed</li>
-<li>¼ teaspoon black pepper, more as needed</li>
-<li>5 ounces feta cheese, crumbled (about 1 1/4 cups)</li>
-<li>6 large eggs</li>
- <li>Chopped cilantro, for serving</li>
- <li>Hot sauce, for serving</li></aside>
+      <li>1 large onion, halved and thinly sliced</li>
+      <li>1 large red bell pepper, seeded and thinly sliced</li>
+      <li>3 garlic cloves, thinly sliced</li>
+      <li>1 teaspoon ground cumin</li>
+      <li>1 teaspoon sweet paprika</li>
+      <li>⅛ teaspoon cayenne, or to taste</li>
+      <li>1 (28-ounce) can whole plum tomatoes with juices, coarsely chopped</li>
+      <li>¾ teaspoon salt, more as needed</li>
+      <li>¼ teaspoon black pepper, more as needed</li>
+      <li>5 ounces feta cheese, crumbled (about 1 1/4 cups)</li>
+      <li>6 large eggs</li>
+      <li>Chopped cilantro, for serving</li>
+      <li>Hot sauce, for serving</li>
+    </aside>
+
+      <section>
+        <h1>Evelyn's Amazing Shakshuka</h1>
+        <figure>
+          <img src="https://static01.nyt.com/images/2014/09/02/dining/shakshuka/shakshuka-superJumbo-v2.jpg" width=30% alt="Picture of shakshuka"/>
+      </figure>
+        <figcaption>A beautiful picture. Learn more about shakshuka at its <a href="https://www.wikiwand.com/en/Shakshouka" target="_blank">Wikipedia page</a></figcaption>
+
+
+    <section>
+      <p><h2><a name="description">Description of shakshuka</a></h2>
+      Shakshuka is a delicious, red, tomato-based dish. It is hearty and filling, but also very healthy.</p></section>
  <section>
     <h2><a name="directions">Directions</a></h2>
 <ol>
@@ -68,9 +70,7 @@
   <label for="name">Name</label>
   <input id="name" type="text" name="name">
 
-  <br><br>
-
-  <label for="rating">Rating</label>
+  <!-- <label for="rating">Rating</label> -->
   1<input id="rating" type="radio" name="rating" value="1" checked>
   2<input id="rating" type="radio" name="rating" value="2">
   3<input id="rating" type="radio" name="rating" value="3" >
@@ -78,7 +78,7 @@
   5<input id="rating" type="radio" name="rating" value="5">
   <br><br>
 
-  <label for="expertise">Cooking Expertise</label>
+  <!-- <label for="expertise">Cooking Expertise</label> -->
   <select id="expertise" name="expertise">
     <option disabled selected>-- Select Cooking Expertise --</option>
     <option value="Sometimes Cook">Sometimes Cook</option>
@@ -87,17 +87,14 @@
     <option value="Professional Chef">Professional Chef</option>
     <option value="Cook Everyday">Cook Everyday</option>
   </select>
-
-  <br><br>
-
-  <label for="review">Review
-  <textarea name="review">
-  </textarea>
+  <label>
+    <textarea name="review"></textarea>
   </label>
-  <br><br>
-  <input type="submit" value="Submit your review">
+  <label>
+    <input type="submit" value="Submit your review">
+  </label>
 </form>
-<br><br>
+</section>
 </section>
 <footer>
 <p>This recipe originated from <a href="https://cooking.nytimes.com/recipes/1014721-shakshuka-with-feta" target="_blank">NYT Cooking</a></p>
