@@ -27,3 +27,46 @@ ul li a {
   text-decoration: none;
   color: inherit;
 }
+
+input[type="radio"] {
+  outline: none;
+  cursor: pointer;
+}
+
+select {
+  outline: none;
+  cursor: pointer;
+}
+
+input[type="submit"] {
+  outline: none;
+  cursor: pointer;
+}
+
+input:last-child {
+  background-color: gold;
+}
+
+input:last-child:hover {
+  -webkit-filter: brightness(90%);
+}
+
+ol li:nth-of-type(2n) {
+  background-color: whitesmoke;
+}
+
+h2 + .user_review {
+    border-top: 1px solid black;
+}
+
+input[type="radio"] {
+    -webkit-appearance: none;
+    width: 27px;
+    height: 27px;
+    background-image: url(../assets/stars.png);
+    vertical-align: bottom;
+}
+
+input[type="radio"]:checked {
+  background-position: 30px 30px;
+}
